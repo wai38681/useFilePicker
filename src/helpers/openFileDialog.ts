@@ -1,4 +1,4 @@
-export function openFileDialog(accept: string, multiple: boolean, callback: (arg: Event) => void, filePickerRef) {
+export function openFileDialog(accept: string, multiple: boolean, callback: (arg: Event) => void, filePickerRef: any) {
   // this function must be called from a user
   // activation event (ie an onclick event)
   console.log(filePickerRef.current);
