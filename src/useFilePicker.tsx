@@ -19,6 +19,7 @@ function useFilePicker({
   limitFilesConfig,
   readFilesContent = true,
   validators = [],
+  filePickerRef = null
 }: UseFilePickerConfig): FilePickerReturnTypes {
   const [files, setFiles] = useState<FileWithPath[]>([]);
   const [filesContent, setFilesContent] = useState<FileContent[]>([]);
@@ -45,6 +46,7 @@ function useFilePicker({
               imageSizeRestrictions,
               limitFilesConfig,
               readFilesContent,
+              filePickerRef
             },
             plainFileObjectsRef.current
           )
@@ -62,7 +64,7 @@ function useFilePicker({
           });
         })
         .catch(() => {});
-    });
+    }, filePickerRef);
   };
 
   const clear = (): void => {
@@ -104,6 +106,7 @@ function useFilePicker({
                     imageSizeRestrictions,
                     limitFilesConfig,
                     readFilesContent,
+                    filePickerRef
                   },
                   file,
                   reader
